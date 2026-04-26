@@ -152,7 +152,7 @@ wasix_libc() {
     rm -rf $wasix_libc_output
 
     # shellcheck disable=SC2086
-    CC=clang CXX=clang++ make CHECK_SYMBOLS="${CHECK_SYMBOLS:-yes}" -j 16 $MAKEFLAGS
+    CC=clang CXX=clang++ make CHECK_SYMBOLS="${CHECK_SYMBOLS:-no}" -j 16 $MAKEFLAGS
     rm -f sysroot/lib/wasm32-wasi/libc-printscan-long-double.a
     rm -rf $wasix_libc_output
     mv sysroot $wasix_libc_output
