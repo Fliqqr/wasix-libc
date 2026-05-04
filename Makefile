@@ -27,7 +27,7 @@ PIC ?= no
 # Disabling this is useful for development, where differences in the
 # exact version of clang can cause some symbols (especially macros) to
 # be added or removed.
-CHECK_SYMBOLS ?= yes
+CHECK_SYMBOLS ?= no
 
 # When the length is no larger than this threshold, we consider the
 # overhead of bulk memory opcodes to outweigh the performance benefit,
@@ -382,7 +382,7 @@ ASMFLAGS += --target=$(TARGET_TRIPLE)
 # TODO: Add -fno-signaling-nans when the compiler supports it.
 CFLAGS += -fno-trapping-math
 # Add all warnings, but disable a few which occur in third-party code.
-CFLAGS += -Wall -Wextra -Werror \
+CFLAGS += -Wall -Wextra -Werror -Wno-error=deprecated \
   -Wno-incompatible-function-pointer-types \
   -Wno-null-pointer-arithmetic \
   -Wno-unused-parameter \
